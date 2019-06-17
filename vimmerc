@@ -1,0 +1,57 @@
+" Colors {{{
+set t_Co=256 " enable 256 colors
+
+colorscheme apprentice " set the colorscheme
+set background=dark " set the background to dark
+syntax enable       " enable syntax highlighting
+
+" }}}
+" UI Layout {{{
+set number       " show line numbers on left
+set showcmd      " show commands at bottom
+set cursorline   " highlight current line
+set laststatus=2 " always show status line
+set ruler        " show position of cursor
+set list         " show whitespace characters
+set showmatch    " highlight matching braces
+set mouse=a      " enable mouse in all modes
+
+" set how whitespace is displayed
+set listchars=tab:,.,trail:.,extends:#,nbsp:.
+" }}}
+" Spaces and Tabs {{{
+filetype indent on
+set expandtab     " expand tabs to spaces
+set tabstop=4     " set tabs to 4 spaces
+set softtabstop=4 " tab/backspace will insert/delete 4 spaces
+set autoindent    " set auto indenting
+set shiftwidth=4  " set autoindent width
+" }}}
+" Searching {{{
+set hlsearch   " highlight search terms
+set ignorecase " case insensitive search
+set smartcase  " case sensitive if any capitals
+" }}}
+" Folding {{{
+set foldenable        " enable folding
+set foldlevelstart=10 " open most folds by default
+set foldnestmax=10    " 10 nested fold max
+set foldmethod=syntax " fold on syntaC
+" }}}
+" Modelines {{{
+set modeline
+set modelines=1
+" }}}
+" Keybindings {{{
+vnoremap <C-c> "+y
+nnoremap <space> za
+imap jj <Esc>
+" }}}
+" Autogroups {{{
+augroup config
+    autocmd BufWritePre * :%s/\s\+$//e
+    autocmd FileType python setlocal foldmethod=indent
+augroup END
+
+" }}}
+" vim:foldmethod=marker:foldlevel=0
